@@ -51,4 +51,26 @@ Ahora es tu turno. Crea un archivo llamado `program.asm` y copia el código del 
 - **¿Por qué crees que es ese valor?:** Se almacena este valor ya que anteriormente se dan instrucciones para sumar dos direcciones de menoria, la **1** y la **2** lo que nos da este resultado. 
 - **¿Qué instrucciones se ejecutan en cada ciclo Fetch-Decode-Execute?:** En cada una de estas lineas sucede el ciclo `fetch-decode-execute`, tomemos como ejemplo la linea **4**, la instruccion que aparece aqui es `@16` el `fetch` sucede antes de llegar a esta instruccion, en donde antes se le da a la CPU la siguiente instruccion, `decode` este sucede luego de haber leido esta instruccion, en donde se interpreta la instruccion en donde entiende que operacion debe hacer y que datos necesita, en el `execute` la CPU realiza la operacion, en este caso el acceder a la memoria.
  
-- **¿Qué cambios observas en el contenido de la memoria y los registros?:** Podemos ver como en donde ponemos la etiqueta `(END)` se transforma en el IDE por la instruccion `@6`
+- **¿Qué cambios observas en el contenido de la memoria y los registros?:** Podemos ver como en especialmente el registro `D` siempre esta cambiando con los valores que va almacenando, y en las ultimas lineas podemos ver como el contenido de la direccion de  memoria `@16` finalmente termina conteniendo el numero **3**
+
+
+## Experimento
+
+Escribe un programa en lenguaje ensablador que sume los números 5 y 10, y almacene el resultado en la dirección de memoria 20. Utiliza el simulador de la CPU Hack para ejecutar tu programa y verifica que el resultado es correcto.
+
+```asm
+		@5
+		D=A
+		@10
+		D=D+A
+		@20
+		M=D
+(END)
+		@END	
+		0;JMP
+
+```
+
+Aqui muestro el resultado al subirlo al IDE Nand2Tetris
+
+![alt text](image-7.png)
